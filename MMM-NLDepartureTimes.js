@@ -1,9 +1,7 @@
 Module.register("MMM-NLDepartureTimes", {
 
-	naam: "Joris",
-	
 	defaults: {
-		things: -1
+		
 	},
 
 	start: function(){
