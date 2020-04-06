@@ -10,8 +10,6 @@ var NodeHelper = require("node_helper");
 module.exports = NodeHelper.create({
 
   socketNotificationReceived: function(notification, payload) {
-    console.log('Helper received data.');
-    console.log(payload);
     this.run(payload);
   },
 
@@ -25,7 +23,6 @@ module.exports = NodeHelper.create({
 */
   //JSON has on level 1 the stop codes.
   //The time tables from different stops must be sorted to a direction.
-  console.log('Parsing.');
   //Get the stopCode from the config and check if present in JSON.
   //If present parse the node in the timetable.  
   for(let confHaltGroup in stopCodeConfig){ //Find the haltgroup/area in the group
