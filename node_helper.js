@@ -55,7 +55,7 @@ module.exports = NodeHelper.create({
         }
       }
     }
-    this.sendSocketNotification('TimeTable', timeTableList);
+    this.sendSocketNotification('TTIMETABLE', timeTableList);
   },
 
   
@@ -76,10 +76,11 @@ module.exports = NodeHelper.create({
     .then(function(response) {
       //handle success
       self.parseData(response.data, stopCodeConfig);
+      
     })
     .catch(function(error) {
       // handle error
-      console.log(error);
+      self.sendSocketNotification('ERROR', error.message);
     });
   }
 });
