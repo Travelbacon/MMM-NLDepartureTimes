@@ -1,15 +1,29 @@
 Module.register("MMM-NLDepartureTimes", {
   
-  firstRun: true,
+  statusDom: undefined,
   timeTableList: Object,
+  error: undefined,
   
   defaults: {
   },
 
   start: function(){
     Log.info(`Sarting module ${this.name}`);
+    this.statusDom = 'Loading';
+    this.resume();
+  },
+  
+  resume: function() {
+    var self = this;
+    setInterval(function() {
+      self.getTable();}, 
+      this.config.updateSpeed * 60000); //minute = 60 * 1000 ms.    
   },
 
+  getTable: function() {
+    this.sendSocketNotification('REQ_TIMETABLE', this.config.tpc);
+  },
+  
   getStyles: function() {
     return ["MMM-NLDepartureTimes.css"];
   },
@@ -17,10 +31,19 @@ Module.register("MMM-NLDepartureTimes", {
   getDom: function(){
     var self = this;
     let wrapper = document.createElement("div");
-    if(this.firstRun){
-      wrapper.innerHTML = "Loading...";
-      this.sendSocketNotification('REQ_TIMETABLE', this.config.ptc);
-    } else {
+    if(this.statusDom === 'Loading'){
+      this.sendSocketNotification('REQ_TIMETABLE', this.config.tpc);
+      if(this.statusDom === 'Loading'){
+        wrapper.innerHTML = "Loading...";
+        return wrapper;
+      }
+    }
+    if(this.statusDom === 'error'){
+      wrapper.innerHTML = this.error;
+      console.log(this.error);
+      return wrapper;
+    }
+    if(this.statusDom === 'newTable'){
       const table = document.createElement("table");
       table.id = "timeTable";
       for(const stopArea in this.timeTableList){
@@ -48,7 +71,7 @@ Module.register("MMM-NLDepartureTimes", {
             //Create time + delay
             let row = document.createElement("tr");
             let vehicleTime = document.createElement("td");
-            vehicleTime.innerHTML = new Date(vehicle.DepTime).toLocaleTimeString('nl-NL');// + ' ' + vehicle.Delay;
+            vehicleTime.innerHTML = new Date(vehicle.DepTime).toLocaleTimeString(this.config.locale);// + ' ' + vehicle.Delay;
             vehicleTime.className = "xsmall light vehicDepTime";
             row.appendChild(vehicleTime);
             
@@ -64,7 +87,6 @@ Module.register("MMM-NLDepartureTimes", {
             row.appendChild(vehicleDestination);
             
             table.appendChild(row);
-            console.log(`Max :${this.config.maxVehics}`);
             if(vehicCounter === this.config.maxVehics){
               break;
             }
@@ -72,22 +94,26 @@ Module.register("MMM-NLDepartureTimes", {
         }
       }
       wrapper.appendChild(table);
-    }
-    
-    return wrapper; 
+      this.statusDom = 'Request'; //Not used in script. Nice for debugging.
+      return wrapper;
+    } 
   },
 
   socketNotificationReceived: function(notification, payload) {
-    Log.info('Helper send data.');
-    Log.info(notification);
-    if(this.firstRun){
-      this.firstRun = false;
+    if(notification === 'TTIMETABLE'){
+      this.statusDom = 'newTable';
+      this.timeTableList = payload;
+      this.updateDom(2000);
+      //this.printTimeTable(this.timeTableList);
     }
-    this.timeTableList = payload;
-    this.updateDom();
-    //this.printTimeTable(this.timeTableList);
+    if(notification === 'ERROR'){
+      this.statusDom = 'error';
+      Log.error(payload);
+      this.error = payload; 
+      this.updateDom(2000);
+    }
   },
-
+  
   printTimeTable: function(timeTableList){
     for(const stopArea in timeTableList){
       console.log(`${stopArea}`);
