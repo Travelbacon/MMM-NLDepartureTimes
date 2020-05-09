@@ -51,8 +51,8 @@ To use this module, add the follwing configuration to your `config/config.js` fi
 |`module`   | Module Name. (See [MM Documentation](https://docs.magicmirror.builders/modules/configuration.html))
 |`position` | Postion of the module. (See [MM Documentation](https://docs.magicmirror.builders/modules/configuration.html))
 |`header`   | Title displayed. (See [MM Documentation](https://docs.magicmirror.builders/modules/configuration.html))
-|`maxVehics` | Number of departure times displayed per destinaton.<br>**Type:** Integer **Default: ** 5
-|`updateSpeed` | refresh time in minutes. Please keep a slow refresh due non commercial property of the API server. See [Github](https://github.com/skywave/KV78Turbo-OVAPI/wiki) of OVapi for etiquette.<br>**Type:** Integer  **Default**: 10
+|`maxVehics` | Number of departure times displayed per destinaton.<br>**Type:** Integer **Default:** 5
+|`updateSpeed` | refresh time in minutes. Please keep a slow refresh due non commercial property of the API server. See [Github](https://github.com/skywave/KV78Turbo-OVAPI/wiki) of OVapi for etiquette.<br>**Type:** Integer  **Default:** 10
 |`tpc` | See configure stops below.<br>**Type:** Javascript Object.
 
 ## Configure stops
