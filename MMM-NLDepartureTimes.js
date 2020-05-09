@@ -5,7 +5,13 @@ Module.register("MMM-NLDepartureTimes", {
   error: undefined,
   
   defaults: {
+		updateSpeed: 10,
+		maxVehics: 5
   },
+	
+	getScripts: function() {
+		return ['moment.js'];
+	},
 
   start: function(){
     Log.info(`Sarting module ${this.name}`);
@@ -31,7 +37,11 @@ Module.register("MMM-NLDepartureTimes", {
   getDom: function(){
     var self = this;
     let wrapper = document.createElement("div");
-    if(this.statusDom === 'Loading'){
+		if(this.config.tpc === undefined){
+			this.statusDom = 'error';
+			this.error = 'No TPC in config. See READM.MD for details.';
+		}
+		if(this.statusDom === 'Loading'){
       this.sendSocketNotification('REQ_TIMETABLE', this.config.tpc);
       if(this.statusDom === 'Loading'){
         wrapper.innerHTML = "Loading...";
@@ -71,8 +81,12 @@ Module.register("MMM-NLDepartureTimes", {
             //Create time + delay
             let row = document.createElement("tr");
             let vehicleTime = document.createElement("td");
-            vehicleTime.innerHTML = new Date(vehicle.DepTime).toLocaleTimeString(this.config.locale);// + ' ' + vehicle.Delay;
-            vehicleTime.className = "xsmall light vehicDepTime";
+						if(config.timeFormat === 24){
+							vehicleTime.innerHTML = moment(vehicle.DepTime).format("HH:mm");
+						} else {
+							vehicleTime.innerHTML = moment(vehicle.DepTime).format("hh:mm A");
+						}
+						vehicleTime.className = "xsmall light vehicDepTime";
             row.appendChild(vehicleTime);
             
             //Create line number + destination
