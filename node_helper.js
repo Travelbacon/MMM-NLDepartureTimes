@@ -2,19 +2,14 @@
 
 const axios = require('axios');
 
-let URLovapi;
-let URLtpc = '';
-let timeTableList = new Object();
-
 var NodeHelper = require("node_helper");
 module.exports = NodeHelper.create({
 
   socketNotificationReceived: function(notification, payload) {
     this.run(payload);
   },
-
     
-  parseData: function(jsonData, stopCodeConfig) {
+  parseData: function(jsonData, stopCodeConfig, timeTableList) {
 /* 
   The JSON comes with level 1 with the time table for a stop code.
   This code wants to group the times not on a stop level, but on a direction level.
@@ -61,7 +56,13 @@ module.exports = NodeHelper.create({
   
   run: function(stopCodeConfig){
     var self = this;
-    
+	
+		let URLtpc = '';
+		let URLovapi;
+		
+		//Empty timeTableList
+		let timeTableList = new Object();
+		
     for(let haltGroup in stopCodeConfig){
       timeTableList[haltGroup] = new Object;
       for(let stopCode in stopCodeConfig[haltGroup]){
@@ -75,7 +76,7 @@ module.exports = NodeHelper.create({
     axios.get(URLovapi)
     .then(function(response) {
       //handle success
-      self.parseData(response.data, stopCodeConfig);
+      self.parseData(response.data, stopCodeConfig, timeTableList);
       
     })
     .catch(function(error) {

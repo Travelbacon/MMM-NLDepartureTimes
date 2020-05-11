@@ -77,7 +77,8 @@ Module.register("MMM-NLDepartureTimes", {
           //fetch vehciles
           let vehicCounter = 0;
           for(const vehicle of this.timeTableList[stopArea][direction]){
-            vehicCounter++;
+            console.log(`C: ${vehicCounter} V: ${vehicle.DepTime} ${vehicle.LineName} ${direction}`);
+						vehicCounter++;
             //Create time + delay
             let row = document.createElement("tr");
             let vehicleTime = document.createElement("td");
@@ -104,7 +105,7 @@ Module.register("MMM-NLDepartureTimes", {
             if(vehicCounter === this.config.maxVehics){
               break;
             }
-          }      
+          }
         }
       }
       wrapper.appendChild(table);
