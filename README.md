@@ -118,7 +118,7 @@ Next step is to get the TPC. From [halte export](http://data.ndovloket.nl/haltes
 ```
 The ```XML <quaycode>``` contains the TPC code. In this case 32009597.
 
-By going to [v0.ovapi.nl/tpc/32009597](v0.ovapi.nl/tpc/32009597) you can test if the TPC is correct. When an XML file is generated with stop data and time information, we have the right TPC code.
+By going to [https://v0.ovapi.nl/tpc/32009597](v0.ovapi.nl/tpc/32009597) you can test if the TPC is correct. When an XML file is generated with stop data and time information, we have the right TPC code.
 
 The final table will be:
 
