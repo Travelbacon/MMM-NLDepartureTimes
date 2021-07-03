@@ -1,11 +1,11 @@
 # MMM-NLDepartureTimes
 
 ## Introduction
-This module shows the departure times of public transport grouped by stops and destination of choiche. In this example you see the stops De Lanen and Leidschenveen. Leidschenveen is a LightRail hub that services lines 3,4, E, 19, 30, and N5. The lines interested are grouped to their destination, instead on line number. Lines 30 and N5 are the ones that aren't used for traveling by me, and for line 19 I am ony interested in one direction to Leidschendam not to Delft.
+This module shows the departure times of public transport grouped by stops and destination of choiche. In this example you see the stops De Lanen and Leidschenveen. Leidschenveen is a LightRail hub that services lines 3,4, E, 19, 30, and N5. The lines interested are grouped to their destination, instead on line number. 
 
 ![preview](./screenshot.png)
 
-Destination is also set to what you tink is good for use. For instance, line 3 goes to Den Haag Loosduinen and E goes the Den Haag Centraal. In this example it is relevant for me that they go to Den Haag. I know where to exit the train or the streetcar in Den Haag itself, shopping centre or work both line 3 and E stop there for me.
+In the screenshot above I have two stops; Leidschenveen and stop De Lanen for streetcar 19. The destination is here set to what I tink is relevant for me. For instance, line 3 goes to Den Haag Loosduinen and E goes the Den Haag Centraal. In this example it is relevant for me that they go to Den Haag. So, I grouped them in destination Den Haag.
 
 The data used by this module is from [OVapi](www.ovapi.nl). OVApi is a semi private project that allows usage by others.
 
