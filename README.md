@@ -5,7 +5,7 @@ This module shows the departure times of public transport grouped by stops and d
 
 ![preview](./screenshot.png)
 
-Destination is also set to what make sense for use. For instance Line 3 goes to Den Haag Loosduinen and E goes the Den Haag Centraal. In this example it is relevant they go to Den Haag where I know where to exit the train or the streetcar.
+Destination is also set to what you tink is good for use. For instance, line 3 goes to Den Haag Loosduinen and E goes the Den Haag Centraal. In this example it is relevant for me that they go to Den Haag. I know where to exit the train or the streetcar in Den Haag itself, shopping centre or work both line 3 and E stop there for me.
 
 The data used by this module is from [OVapi](www.ovapi.nl). OVApi is a semi private project that allows usage by others.
 
