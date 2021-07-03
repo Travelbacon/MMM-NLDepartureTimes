@@ -1,7 +1,7 @@
 # MMM-NLDepartureTimes
 
 ## Introduction
-This module shows the departure times of public transport grouped by stops and destination of choiche. In this example you see the stops De Lanen and Leidschenveen. Leidschenveen is a LightRail hub that services lines 3,4, E, 19, 30, and N5. The lines interested are grouped to their destination, instead on line number. Lines 30 and N5 are the ones that aren't used for traveling.
+This module shows the departure times of public transport grouped by stops and destination of choiche. In this example you see the stops De Lanen and Leidschenveen. Leidschenveen is a LightRail hub that services lines 3,4, E, 19, 30, and N5. The lines interested are grouped to their destination, instead on line number. Lines 30 and N5 are the ones that aren't used for traveling by me, and line 19 I am ony interested in one direction not both directions.
 
 ![preview](./screenshot.png)
 
