@@ -14,7 +14,7 @@ The data used by this module is from [OVapi](www.ovapi.nl). OVApi is a semi priv
 ## Installation
 Clone the repository with
 
-    git clone git@github.com:Travelbacon/MMM-NLDepartureTimes.git ./
+    git clone https://github.com/Travelbacon/MMM-NLDepartureTimes
 
 This module depends on [Axios](https://github.com/axios/axios). You can install it by going to the module folder and execute:
 
