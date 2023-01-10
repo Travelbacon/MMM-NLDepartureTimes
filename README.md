@@ -7,7 +7,7 @@ This module shows the departure times of public transport grouped by stops and d
 
 In the screenshot above I have two stops; Leidschenveen and De Lanen for streetcar 19. The destination is here set to what I tink is relevant for me. For instance, line 3 goes to Den Haag Loosduinen and E goes the Den Haag Centraal. In this example it is relevant for me that they go to Den Haag. So, I grouped them in destination Den Haag. Line 19 is grouped in destination Leidschendam. In this example I only intersted in direction Leidschendam and the other destination Delft is left out this way.
 
-The data used by this module is from [OVapi](www.ovapi.nl). OVApi is a semi private project that allows usage by others.
+The data used by this module is from [OVapi](https://www.ovapi.nl). OVApi is a semi private project that allows usage by others.
 
 **Note:** This Module only works with Dutch Public transportation.
 
@@ -72,8 +72,8 @@ TPC is a code that identifies a stop. To get the right TPC, it will require some
 
 **tldr;**
 
-The TPC is in the xml file called PassengerStopAssignmentCHB{timestamp}.xml from [NDOV Loket's haltes folder](https://ndovloket.nl/opendata/haltes).
-Convert the stopname to userstopcode at [OV Zoeker](https://ovzoeker.nl/l) or [KV1](http://data.ndovloket.nl/). Convert userstopcode to TPC via the XMLs from [halte export](http://data.ndovloket.nl/haltes).
+The TPC is in the xml file called PassengerStopAssignmentCHB{timestamp}.xml from [NDOV Loket's haltes folder](http://data.ndovloket.nl/haltes/).
+Convert the stopname to userstopcode at [OV Zoeker](https://ovzoeker.nl/) or [KV1](http://data.ndovloket.nl/). Convert userstopcode to TPC via the XMLs from [halte export](http://data.ndovloket.nl/haltes).
 
 **Detailed steps**
 
