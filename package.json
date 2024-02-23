@@ -1,7 +1,7 @@
 {
   "name": "mmm-nldeparturetimes",
   "version": "1.0.0",
-  "description": "Magic Mirror Module to show departure times grouped by direction from different stops.",
+  "description": "A Module for MagicMirror² to show departure times grouped by direction from different stops.",
   "main": "MMM-NLDepartureTimes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "MagicMirror",
-    "PublicTransport"
+    "Public Transport"
   ],
   "author": "George Travelbacon",
   "license": "MIT",
